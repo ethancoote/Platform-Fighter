@@ -1,3 +1,3 @@
 # gamemaker-char-test
 
-Player movement test in GameMaker.
+Player movement test in GameMaker with controller support. 
