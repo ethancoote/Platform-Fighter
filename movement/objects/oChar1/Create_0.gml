@@ -1,3 +1,6 @@
+// Controls
+controls_setup();
+
 // Moving
 move_dir = 0;
 move_spd = 2;

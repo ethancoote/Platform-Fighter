@@ -1,8 +1,5 @@
 // Get inputs
-right_key = keyboard_check( vk_right ) || (gamepad_axis_value(4, gp_axislh) > 0);
-left_key = keyboard_check( vk_left ) || (gamepad_axis_value(4, gp_axislh) < 0);
-jump_key_pressed = keyboard_check_pressed( vk_space ) || gamepad_button_check_pressed(4, gp_face4);
-jump_key = keyboard_check( vk_space );
+get_controls();
 
 // X Movement
 move_dir = right_key - left_key;
@@ -10,11 +7,10 @@ x_spd = move_dir * move_spd;
 
 // X Collision
 var _sub_pixel = .5;
-if place_meeting(x + x_spd, y, oWall)
-{
+if place_meeting(x + x_spd, y, oWall) {
 	var _pixel_check = _sub_pixel * sign(x_spd);
-	while !place_meeting(x + _pixel_check, y, oWall)
-	{
+	
+	while !place_meeting(x + _pixel_check, y, oWall) {
 		x += _pixel_check;
 	}
 	x_spd = 0;
@@ -23,23 +19,22 @@ if place_meeting(x + x_spd, y, oWall)
 // Y Movement
 y_spd += grav;
 
-if y_spd > term_vel 
-{
+if y_spd > term_vel {
 	y_spd = term_vel;
 }
 
 // Jump
-if jump_key_pressed && place_meeting( x, y+1, oWall )
-{
+if jump_key_buffered && place_meeting( x, y+1, oWall ) {
+	jump_key_buffered = false;
+	jump_key_buffer_time = 0;
 	y_spd = jump_speed;
 }
 
 // Y Collision
-if place_meeting(x, y + y_spd, oWall)
-{
+if place_meeting(x, y + y_spd, oWall) {
 	var _pixel_check = _sub_pixel * sign(y_spd);
-	while !place_meeting(x, y + _pixel_check, oWall) 
-	{
+	
+	while !place_meeting(x, y + _pixel_check, oWall) {
 		y += _pixel_check;
 	}
 	

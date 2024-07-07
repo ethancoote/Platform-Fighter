@@ -35,6 +35,7 @@
   },
   "resources": [
     {"id":{"name":"oChar1","path":"objects/oChar1/oChar1.yy",},},
+    {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
     {"id":{"name":"sChar2","path":"sprites/sChar2/sChar2.yy",},},
     {"id":{"name":"sChar1","path":"sprites/sChar1/sChar1.yy",},},
