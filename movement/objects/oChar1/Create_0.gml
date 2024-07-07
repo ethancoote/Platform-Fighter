@@ -8,3 +8,6 @@ y_spd = 0;
 grav = .4;
 term_vel = 4;
 jump_speed = -6;
+
+// Gamepad
+gamepad_set_axis_deadzone(4, 0.4);

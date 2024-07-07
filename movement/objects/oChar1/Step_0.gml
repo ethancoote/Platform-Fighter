@@ -1,7 +1,7 @@
 // Get inputs
-right_key = keyboard_check( vk_right );
-left_key = keyboard_check( vk_left );
-jump_key_pressed = keyboard_check_pressed( vk_space );
+right_key = keyboard_check( vk_right ) || (gamepad_axis_value(4, gp_axislh) > 0);
+left_key = keyboard_check( vk_left ) || (gamepad_axis_value(4, gp_axislh) < 0);
+jump_key_pressed = keyboard_check_pressed( vk_space ) || gamepad_button_check_pressed(4, gp_face4);
 jump_key = keyboard_check( vk_space );
 
 // X Movement
