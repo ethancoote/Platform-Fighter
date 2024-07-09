@@ -14,6 +14,7 @@ function get_controls(){
 	// action inputs
 	jump_key_pressed = keyboard_check_pressed( vk_space ) || gamepad_button_check_pressed(4, gp_face1);
 	jump_key = keyboard_check( vk_space ) || gamepad_button_check(4, gp_face1);
+	dash_key =  keyboard_check( vk_control ) || gamepad_button_check(4, gp_shoulderl);
 	
 	// jump buffer
 	if jump_key_pressed {

@@ -4,25 +4,34 @@ get_controls();
 // X Movement
 move_dir = right_key - left_key;
 x_spd = move_dir * move_spd;
+y_spd += grav;
+
 if move_dir == 0 {
 	move_dir = right_key_walk - left_key_walk;
 	x_spd = move_dir * walk_spd;
 }
 
-
-// X Collision
-var _sub_pixel = .5;
-if place_meeting(x + x_spd, y, oWall) {
-	var _pixel_check = _sub_pixel * sign(x_spd);
-	
-	while !place_meeting(x + _pixel_check, y, oWall) {
-		x += _pixel_check;
+// Air Dash Init
+if  dash_key && x_spd != 0 && grounded == false && dash_count < dash_max {
+	dash_timer = dash_frames + dash_hang_time;
+	if x_spd < 0 {
+		dash_speed_dir = -dash_speed;
+	} else {
+		dash_speed_dir = dash_speed;
 	}
-	x_spd = 0;
+	dash_count++;
 }
 
-// Y Movement
-y_spd += grav;
+//Air Dash
+if dash_timer > 0 {
+	if dash_timer > (dash_hang_time) {
+		x_spd = dash_speed_dir;
+	} else {
+		x_spd = dash_speed_dir * hang_move_speed;
+	}
+	y_spd = 0;
+	dash_timer--;
+} 
 
 if y_spd > term_vel {
 	y_spd = term_vel;
@@ -61,6 +70,7 @@ if jump_hold_frame_count == jump_short_buffer {
 }
 
 // Y Collision
+var _sub_pixel = .5;
 if place_meeting(x, y + y_spd, oWall) {
 	var _pixel_check = _sub_pixel * sign(y_spd);
 	
@@ -75,11 +85,27 @@ if place_meeting(x, y + y_spd, oWall) {
 	y_spd = 0;
 }
 
+y += y_spd;
+
+// X Collision
+if place_meeting(x + x_spd, y, oWall) {
+	var _pixel_check = _sub_pixel * sign(x_spd);
+	
+	while !place_meeting(x + _pixel_check, y, oWall) {
+		x += _pixel_check;
+	}
+	
+	x_spd = 0;
+}
+
+x += x_spd;
+
 // Set grounded
 if y_spd >= 0 && place_meeting(x, y+1, oWall) {
 	grounded = true;
 	coyote_timer = coyote_frames;
 	jump_count = 0;
+	dash_count = 0;
 } else {
 	grounded = false;
 	coyote_timer += 1;
@@ -88,8 +114,3 @@ if y_spd >= 0 && place_meeting(x, y+1, oWall) {
 	}
 }
 
-
-
-// Move
-x += x_spd;
-y += y_spd;
