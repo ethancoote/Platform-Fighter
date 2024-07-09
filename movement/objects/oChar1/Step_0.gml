@@ -13,6 +13,7 @@ if move_dir == 0 {
 	init_dash_active = false;
 } else {
 	init_dash_active = true;
+	face = move_dir;
 }
 
 // Grounded Dash Init
@@ -86,7 +87,7 @@ if jump_key && jump_count < jump_max{
 	jump_hold_frame_count = 0;
 }
 
-if jump_hold_frame_count == jump_short_buffer {
+if jump_hold_frame_count == jump_short_buffer && !grounded {
 	jump_hold_timer += jump_hold_frames_full;
 }
 
@@ -101,6 +102,10 @@ if place_meeting(x, y + y_spd, oWall) {
 	
 	if y_spd < 0 {
 		jump_hold_timer = 0;
+	} 
+	
+	if y_spd > grav {
+		squash_timer = squash_frames;
 	}
 	
 	y_spd = 0;
@@ -135,3 +140,50 @@ if y_spd >= 0 && place_meeting(x, y+1, oWall) {
 	}
 }
 
+// Sprite Control
+
+// jump
+draw_xscale = 1;
+draw_yscale = 1;
+draw_xpos = x;
+draw_ypos = y;
+draw_angle = 0;
+if jump_hold_timer > 0 && jump_squat_count < jump_squat_frames {
+	draw_yscale = 0.5;
+	draw_xscale = 1.5;
+} else if y_spd > 5 || y_spd < -5 {
+	draw_yscale = 1.5;
+	draw_xscale = 0.7;
+	draw_ypos = y - 5;
+}
+
+if squash_timer > 3 && grounded{
+	draw_yscale = 0.4;
+	draw_xscale = 2;
+	squash_timer--;
+} else if squash_timer > 0 && grounded {
+	draw_yscale = 0.8;
+	draw_xscale = 1.3;
+	squash_timer--;
+}
+
+// dash
+if (x_spd >= dash_speed || x_spd <= -dash_speed) && !grounded {
+	draw_xscale = 1.6;
+	draw_yscale = 0.7;
+	if x_spd > 0 {
+		draw_xpos = x - 10;
+	} else if x_spd < 0 {
+		draw_xpos = x + 10;
+	} 
+} else if (x_spd >= move_spd || x_spd <= -move_spd) && grounded {
+	draw_ypos = y - 2;
+	if x_spd > 0 {
+		draw_xpos = x - 5;
+		draw_angle = 20;
+	} else if x_spd < 0 {
+		draw_xpos = x + 5;
+		draw_angle = -20;
+	}
+	
+}
