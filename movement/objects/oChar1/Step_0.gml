@@ -4,6 +4,11 @@ get_controls();
 // X Movement
 move_dir = right_key - left_key;
 x_spd = move_dir * move_spd;
+if move_dir == 0 {
+	move_dir = right_key_walk - left_key_walk;
+	x_spd = move_dir * walk_spd;
+}
+
 
 // X Collision
 var _sub_pixel = .5;
@@ -23,12 +28,35 @@ if y_spd > term_vel {
 	y_spd = term_vel;
 }
 
-// Jump
+// init jump
 if jump_key_buffered && jump_count < jump_max {
 	jump_key_buffered = false;
 	jump_key_buffer_time = 0;
 	jump_count++;
-	y_spd = jump_speed;
+	jump_hold_timer = jump_hold_frames_short;
+	if grounded {
+		jump_squat_count = 0;
+	}
+	
+}
+// jump height
+if jump_hold_timer > 0 {
+	if jump_squat_count >= jump_squat_frames {
+		y_spd = jump_speed;
+		jump_hold_timer--;
+	}
+	jump_squat_count += 1;
+}
+
+// SH vs FH
+if jump_key && jump_count < jump_max{
+	jump_hold_frame_count += 1;
+} else {
+	jump_hold_frame_count = 0;
+}
+
+if jump_hold_frame_count == jump_short_buffer {
+	jump_hold_timer += jump_hold_frames_full;
 }
 
 // Y Collision
@@ -37,6 +65,10 @@ if place_meeting(x, y + y_spd, oWall) {
 	
 	while !place_meeting(x, y + _pixel_check, oWall) {
 		y += _pixel_check;
+	}
+	
+	if y_spd < 0 {
+		jump_hold_timer = 0;
 	}
 	
 	y_spd = 0;

@@ -6,8 +6,10 @@ function controls_setup(){
 
 function get_controls(){
 	// dir inputs
-	right_key = keyboard_check( vk_right ) || (gamepad_axis_value(4, gp_axislh) > 0);
-	left_key = keyboard_check( vk_left ) || (gamepad_axis_value(4, gp_axislh) < 0);
+	right_key = keyboard_check( vk_right ) || (gamepad_axis_value(4, gp_axislh) > 0.8);
+	left_key = keyboard_check( vk_left ) || (gamepad_axis_value(4, gp_axislh) < -0.8);
+	right_key_walk = (gamepad_axis_value(4, gp_axislh) > 0) && (gamepad_axis_value(4, gp_axislh) < 0.8);
+	left_key_walk = (gamepad_axis_value(4, gp_axislh) < 0) && (gamepad_axis_value(4, gp_axislh) > -0.8);
 	
 	// action inputs
 	jump_key_pressed = keyboard_check_pressed( vk_space ) || gamepad_button_check_pressed(4, gp_face1);
