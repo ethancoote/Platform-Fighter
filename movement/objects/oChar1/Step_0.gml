@@ -9,6 +9,27 @@ y_spd += grav;
 if move_dir == 0 {
 	move_dir = right_key_walk - left_key_walk;
 	x_spd = move_dir * walk_spd;
+	init_dash_count = 0;
+	init_dash_active = false;
+} else {
+	init_dash_active = true;
+}
+
+// Grounded Dash Init
+if init_dash_count < init_dash_max && grounded && init_dash_active {
+	if x_spd > 0 {
+		init_dash_speed_dir = init_dash_speed;
+	} else {
+		init_dash_speed_dir = -init_dash_speed;
+	}
+	init_dash_timer = init_dash_frames;
+	init_dash_count += 1;
+}
+
+// Grounded Dash
+if init_dash_timer > 0 {
+	x_spd = init_dash_speed_dir;
+	init_dash_timer--;
 }
 
 // Air Dash Init

@@ -32,7 +32,7 @@ jump_squat_count = 0;
 coyote_frames = 3;
 coyote_timer = 0;
 
-// Dash
+// Air Dash
 dash_max = 1;
 dash_count = 0;
 dash_speed = 8;
@@ -41,6 +41,15 @@ dash_frames = 8;
 dash_hang_time = 5;
 hang_move_speed = 0.3;
 dash_timer = 0;
+
+// Initial Dash
+init_dash_timer = 0;
+init_dash_frames = 5;
+init_dash_speed = 5;
+init_dash_max = 1;
+init_dash_count = 0;
+init_dash_active = false;
+init_dash_speed_dir = init_dash_speed;
 
 // Gamepad
 gamepad_set_axis_deadzone(4, 0.3);
