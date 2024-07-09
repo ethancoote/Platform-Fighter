@@ -27,5 +27,9 @@ jump_hold_frame_count = 0;
 jump_squat_frames = 5;
 jump_squat_count = 0;
 
+// Coyote Time
+coyote_frames = 3;
+coyote_timer = 0;
+
 // Gamepad
 gamepad_set_axis_deadzone(4, 0.3);

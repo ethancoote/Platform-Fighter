@@ -34,8 +34,9 @@ if jump_key_buffered && jump_count < jump_max {
 	jump_key_buffer_time = 0;
 	jump_count++;
 	jump_hold_timer = jump_hold_frames_short;
-	if grounded {
-		jump_squat_count = 0;
+	jump_squat_count = 0;
+	if !grounded {
+		jump_hold_timer += jump_hold_frames_full;
 	}
 	
 }
@@ -77,10 +78,12 @@ if place_meeting(x, y + y_spd, oWall) {
 // Set grounded
 if y_spd >= 0 && place_meeting(x, y+1, oWall) {
 	grounded = true;
+	coyote_timer = coyote_frames;
 	jump_count = 0;
 } else {
 	grounded = false;
-	if jump_count == 0 {
+	coyote_timer += 1;
+	if jump_count == 0 && coyote_timer >= coyote_frames {
 		jump_count = 1;
 	}
 }
