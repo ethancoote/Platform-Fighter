@@ -24,9 +24,10 @@ if y_spd > term_vel {
 }
 
 // Jump
-if jump_key_buffered && place_meeting( x, y+1, oWall ) {
+if jump_key_buffered && jump_count < jump_max {
 	jump_key_buffered = false;
 	jump_key_buffer_time = 0;
+	jump_count++;
 	y_spd = jump_speed;
 }
 
@@ -39,6 +40,17 @@ if place_meeting(x, y + y_spd, oWall) {
 	}
 	
 	y_spd = 0;
+}
+
+// Set grounded
+if y_spd >= 0 && place_meeting(x, y+1, oWall) {
+	grounded = true;
+	jump_count = 0;
+} else {
+	grounded = false;
+	if jump_count == 0 {
+		jump_count = 1;
+	}
 }
 
 
