@@ -34,6 +34,7 @@
     "IDEVersion": "2023.8.2.108",
   },
   "resources": [
+    {"id":{"name":"charSelectBackground","path":"sprites/charSelectBackground/charSelectBackground.yy",},},
     {"id":{"name":"oChar1","path":"objects/oChar1/oChar1.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
@@ -41,11 +42,13 @@
     {"id":{"name":"sChar2","path":"sprites/sChar2/sChar2.yy",},},
     {"id":{"name":"sChar1","path":"sprites/sChar1/sChar1.yy",},},
     {"id":{"name":"oChar2","path":"objects/oChar2/oChar2.yy",},},
+    {"id":{"name":"CharSelectRoom","path":"rooms/CharSelectRoom/CharSelectRoom.yy",},},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},},
     {"id":{"name":"oPlat","path":"objects/oPlat/oPlat.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [
+    {"roomId":{"name":"CharSelectRoom","path":"rooms/CharSelectRoom/CharSelectRoom.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "templateType": "game",
