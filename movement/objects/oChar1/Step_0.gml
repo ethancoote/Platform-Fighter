@@ -80,8 +80,10 @@ if jump_key_buffered && jump_count < jump_max {
 }
 // jump height
 if jump_hold_timer > 0 {
-	if jump_squat_count >= jump_squat_frames {
+	if jump_squat_count >= jump_squat_frames && dash_timer == 0{
 		y_spd = jump_speed;
+		jump_hold_timer--;
+	} else if jump_squat_count >= jump_squat_frames {
 		jump_hold_timer--;
 	}
 	jump_squat_count += 1;
@@ -116,6 +118,30 @@ if place_meeting(x, y + y_spd, oWall) {
 	}
 	
 	y_spd = 0;
+} else if place_meeting(x, y + y_spd, oPlat) && last_frame_y <= oPlat.y {
+	var _pixel_check = _sub_pixel * sign(y_spd);
+	
+	while !place_meeting(x, y + _pixel_check, oPlat) {
+		y += _pixel_check;
+	}
+	
+	if y > oPlat.y {
+		y = oPlat.y;
+	}
+	
+	if crouch_key {
+		y += 1;
+	}
+	
+	if y_spd < 0 {
+		jump_hold_timer = 0;
+	} 
+	
+	if y_spd > grav {
+		squash_timer = squash_frames;
+	}
+	
+	y_spd = 0;
 }
 
 y += y_spd;
@@ -134,7 +160,7 @@ if place_meeting(x + x_spd, y, oWall) {
 x += x_spd;
 
 // Set grounded
-if y_spd >= 0 && place_meeting(x, y+1, oWall) {
+if (y_spd >= 0 && place_meeting(x, y+1, oWall)) || (y_spd >= 0 && place_meeting(x, y+1, oPlat) && last_frame_y <= oPlat.y) {
 	grounded = true;
 	coyote_timer = coyote_frames;
 	jump_count = 0;
@@ -146,6 +172,8 @@ if y_spd >= 0 && place_meeting(x, y+1, oWall) {
 		jump_count = 1;
 	}
 }
+
+last_frame_y = y;
 
 // Sprite Control
 

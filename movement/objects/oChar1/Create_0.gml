@@ -53,6 +53,9 @@ init_dash_count = 0;
 init_dash_active = false;
 init_dash_speed_dir = init_dash_speed;
 
+// frame tracking
+last_frame_y = y;
+
 // Sprite Controls
 squash_timer = 0;
 squash_frames = 5;

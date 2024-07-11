@@ -19,7 +19,9 @@
   "ResourceOrderSettings": [
     {"name":"oChar1","order":1,"path":"objects/oChar1/oChar1.yy",},
     {"name":"sWall","order":2,"path":"sprites/sWall/sWall.yy",},
+    {"name":"sPlat","order":3,"path":"sprites/sPlat/sPlat.yy",},
     {"name":"sChar2","order":1,"path":"sprites/sChar2/sChar2.yy",},
     {"name":"oChar2","order":2,"path":"objects/oChar2/oChar2.yy",},
+    {"name":"oPlat","order":3,"path":"objects/oPlat/oPlat.yy",},
   ],
 }
