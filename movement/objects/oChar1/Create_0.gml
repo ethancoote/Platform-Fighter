@@ -4,6 +4,7 @@ controls_setup();
 // Moving
 move_dir = 0;
 move_spd = 3;
+air_spd = 2;
 walk_spd = 1;
 x_spd = 0;
 y_spd = 0;
@@ -36,9 +37,9 @@ coyote_timer = 0;
 // Air Dash
 dash_max = 1;
 dash_count = 0;
-dash_speed = 8;
+dash_speed = 6;
 dash_speed_dir = dash_speed;
-dash_frames = 8;
+dash_frames = 10;
 dash_hang_time = 5;
 hang_move_speed = 0.3;
 dash_timer = 0;

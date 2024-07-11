@@ -10,6 +10,7 @@ function get_controls(){
 	left_key = keyboard_check( vk_left ) || (gamepad_axis_value(4, gp_axislh) < -0.8);
 	right_key_walk = (gamepad_axis_value(4, gp_axislh) > 0) && (gamepad_axis_value(4, gp_axislh) < 0.8);
 	left_key_walk = (gamepad_axis_value(4, gp_axislh) < 0) && (gamepad_axis_value(4, gp_axislh) > -0.8);
+	crouch_key = keyboard_check( vk_down ) || (gamepad_axis_value(4, gp_axislv) > 0);
 	
 	// action inputs
 	jump_key_pressed = keyboard_check_pressed( vk_space ) || gamepad_button_check_pressed(4, gp_face1);

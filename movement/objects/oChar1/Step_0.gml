@@ -3,7 +3,14 @@ get_controls();
 
 // X Movement
 move_dir = right_key - left_key;
-x_spd = move_dir * move_spd;
+
+// Air vs ground speed
+if grounded {
+	x_spd = move_dir * move_spd;
+} else {
+	x_spd = move_dir * air_spd;
+}
+
 y_spd += grav;
 
 if move_dir == 0 {
@@ -184,6 +191,11 @@ if (x_spd >= dash_speed || x_spd <= -dash_speed) && !grounded {
 	} else if x_spd < 0 {
 		draw_xpos = x + 5;
 		draw_angle = -20;
-	}
-	
+	}	
+}
+
+// crouch
+if crouch_key && grounded && x_spd >= -walk_spd && x_spd <= walk_spd {
+	draw_xscale = 1.3;
+	draw_yscale = 0.5;
 }
