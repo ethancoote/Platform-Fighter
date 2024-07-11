@@ -1,3 +1,3 @@
-# gamemaker-char-test
+# Platform Fighter
 
-Player movement test in GameMaker with ps4 controller support. 
+Platform fighting game test in GameMaker with ps4 controller support. 
