@@ -29,3 +29,7 @@ function get_controls(){
 		jump_key_buffered = 0;
 	}
 }
+
+function get_menu_controls(_i) {
+	start_key = keyboard_check(vk_enter) || gamepad_button_check_pressed(_i, gp_start);
+}

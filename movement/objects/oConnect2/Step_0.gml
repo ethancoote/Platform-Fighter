@@ -1,11 +1,16 @@
+// only check if first controller is connected
 // check if gamepad is connected
 get_menu_controls(i);
-if connected == false {
-	for (i=0;i<12;i++) {
-		connected = gamepad_is_connected(i);
-		if connected == true {
-			gamepad_val = i;
-			break;
+if oConnect1.connected == true {
+	if connected == false {
+		for (i=0;i<12;i++) {
+			if (i != oConnect1.i) {
+				connected = gamepad_is_connected(i);
+				if connected == true {
+					gamepad_val = i;
+					break;
+				}
+			}
 		}
 	}
 }
@@ -21,17 +26,15 @@ if connected == true {
 		if start_key {
 			if ready == false {
 				ready = true;
-				oReadyCheck1.sprite_index = sReady;
+				oReadyCheck2.sprite_index = sReady;
 			} else if ready == true {
 				ready = false;
-				oReadyCheck1.sprite_index = sNotReady;
+				oReadyCheck2.sprite_index = sNotReady;
 			}
 		}
 	}
 }
 
-if ready == true && oConnect2.ready == true {
-	show_debug_message("start match!");
-}
+
 
 
