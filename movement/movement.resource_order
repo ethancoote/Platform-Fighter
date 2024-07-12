@@ -33,6 +33,7 @@
     {"name":"oConnect2","order":5,"path":"objects/oConnect2/oConnect2.yy",},
     {"name":"oConnect1","order":4,"path":"objects/oConnect1/oConnect1.yy",},
     {"name":"CharSelectRoom","order":1,"path":"rooms/CharSelectRoom/CharSelectRoom.yy",},
+    {"name":"oCamera","order":10,"path":"objects/oCamera/oCamera.yy",},
     {"name":"oPlat","order":3,"path":"objects/oPlat/oPlat.yy",},
     {"name":"sConnected1","order":6,"path":"sprites/sConnected1/sConnected1.yy",},
   ],

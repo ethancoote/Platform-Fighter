@@ -53,6 +53,7 @@
     {"id":{"name":"oConnect1","path":"objects/oConnect1/oConnect1.yy",},},
     {"id":{"name":"CharSelectRoom","path":"rooms/CharSelectRoom/CharSelectRoom.yy",},},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},},
+    {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},},
     {"id":{"name":"oPlat","path":"objects/oPlat/oPlat.yy",},},
     {"id":{"name":"sConnected1","path":"sprites/sConnected1/sConnected1.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
