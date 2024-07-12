@@ -1,5 +1,5 @@
 // Get inputs
-get_controls();
+get_controls(i);
 
 // X Movement
 move_dir = right_key - left_key;
@@ -129,7 +129,7 @@ if place_meeting(x, y + y_spd, oWall) {
 		y = oPlat.y;
 	}
 	
-	if crouch_key {
+	if crouch_key && x_spd == 0{
 		y += 1;
 	}
 	

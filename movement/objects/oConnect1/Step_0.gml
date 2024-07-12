@@ -31,7 +31,9 @@ if connected == true {
 }
 
 if ready == true && oConnect2.ready == true {
-	show_debug_message("start match!");
+	oGlobal.player1_control = i;
+	oGlobal.player2_control = oConnect2.i;
+	room_goto(1);
 }
 
 

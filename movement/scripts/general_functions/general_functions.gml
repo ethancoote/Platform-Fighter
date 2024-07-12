@@ -4,18 +4,18 @@ function controls_setup(){
 	jump_key_buffer_time = 0;
 }
 
-function get_controls(){
+function get_controls(_i){
 	// dir inputs
-	right_key = keyboard_check( vk_right ) || (gamepad_axis_value(4, gp_axislh) > 0.8);
-	left_key = keyboard_check( vk_left ) || (gamepad_axis_value(4, gp_axislh) < -0.8);
-	right_key_walk = (gamepad_axis_value(4, gp_axislh) > 0) && (gamepad_axis_value(4, gp_axislh) < 0.8);
-	left_key_walk = (gamepad_axis_value(4, gp_axislh) < 0) && (gamepad_axis_value(4, gp_axislh) > -0.8);
-	crouch_key = keyboard_check( vk_down ) || (gamepad_axis_value(4, gp_axislv) > 0);
+	right_key = keyboard_check( vk_right ) || (gamepad_axis_value(_i, gp_axislh) > 0.8);
+	left_key = keyboard_check( vk_left ) || (gamepad_axis_value(_i, gp_axislh) < -0.8);
+	right_key_walk = (gamepad_axis_value(_i, gp_axislh) > 0) && (gamepad_axis_value(_i, gp_axislh) < 0.8);
+	left_key_walk = (gamepad_axis_value(_i, gp_axislh) < 0) && (gamepad_axis_value(_i, gp_axislh) > -0.8);
+	crouch_key = keyboard_check( vk_down ) || (gamepad_axis_value(_i, gp_axislv) > 0);
 	
 	// action inputs
-	jump_key_pressed = keyboard_check_pressed( vk_space ) || gamepad_button_check_pressed(4, gp_face1);
-	jump_key = keyboard_check( vk_space ) || gamepad_button_check(4, gp_face1);
-	dash_key =  keyboard_check( vk_control ) || gamepad_button_check(4, gp_shoulderl);
+	jump_key_pressed = keyboard_check_pressed( vk_space ) || gamepad_button_check_pressed(_i, gp_face1);
+	jump_key = keyboard_check( vk_space ) || gamepad_button_check(_i, gp_face1);
+	dash_key =  keyboard_check( vk_control ) || gamepad_button_check(_i, gp_shoulderl);
 	
 	// jump buffer
 	if jump_key_pressed {
@@ -28,8 +28,15 @@ function get_controls(){
 	} else {
 		jump_key_buffered = 0;
 	}
+	
+	// Deadzone
+	gamepad_set_axis_deadzone(_i, 0.3);
+	
 }
 
 function get_menu_controls(_i) {
 	start_key = keyboard_check(vk_enter) || gamepad_button_check_pressed(_i, gp_start);
+	
+	// Deadzone
+	gamepad_set_axis_deadzone(_i, 0.3);
 }

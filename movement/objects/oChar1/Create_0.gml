@@ -9,10 +9,11 @@ walk_spd = 1;
 x_spd = 0;
 y_spd = 0;
 face = 1;
+i = -1;
 
 // Jumping
-set_grav = .7;
-grav = .7;
+set_grav = .6;
+grav = set_grav;
 term_vel = 7;
 jump_speed = -6;
 jump_max = 2;
@@ -64,6 +65,3 @@ draw_yscale = 1;
 draw_xpos = x;
 draw_ypos = y;
 draw_angle = 0;
-
-// Gamepad
-gamepad_set_axis_deadzone(4, 0.3);
