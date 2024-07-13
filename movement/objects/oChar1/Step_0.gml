@@ -18,6 +18,12 @@ if move_dir == 0 {
 	x_spd = move_dir * walk_spd;
 	init_dash_count = 0;
 	init_dash_active = false;
+	if move_dir == 0 {
+		face = last_move_dir;
+	} else {
+		face = move_dir;
+	}
+	
 } else {
 	init_dash_active = true;
 	face = move_dir;
@@ -99,6 +105,46 @@ if jump_key && jump_count < jump_max{
 if jump_hold_frame_count == jump_short_buffer && !grounded {
 	jump_hold_timer += jump_hold_frames_full;
 }
+
+last_move_dir = face;
+
+// Attacks
+// big attack 1
+if big_attack_key && grounded && endlag == 0 {
+	endlag = big_attack1_end_frames;
+	startup = big_attack1_start_frames;
+	active = big_attack1_active_frames;
+	big_attack1_timer = endlag + startup + active;
+}
+
+if big_attack1_timer > 0 {
+	if startup > 0 {
+		startup--;
+	} else if active > 0 {
+		
+		if attack_instance == noone {
+			if last_move_dir > 0 {
+				attack_instance = instance_create_depth(x+15, y-5, -1, oBrawlBig1);
+			} else if last_move_dir < 0 {
+				attack_instance = instance_create_depth(x-15, y-5, -1, oBrawlBig1);
+				attack_instance.image_xscale = attack_instance.image_xscale * -1;
+			}
+		}
+		active--;
+	} else if endlag > 0 {
+		if attack_instance != noone {
+			instance_destroy(attack_instance);
+			attack_instance = noone;
+		} 
+		endlag--;
+	}
+	x_spd = 0;
+	y_spd = 0;
+	big_attack1_timer--;
+}
+
+// Got Hit
+
 
 // Y Collision
 var _sub_pixel = .5;

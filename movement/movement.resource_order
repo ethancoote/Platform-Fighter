@@ -15,6 +15,8 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
+    {"name":"Hitboxes","order":10,"path":"folders/Sprites/Hitboxes.yy",},
+    {"name":"Hitboxes","order":11,"path":"folders/Objects/Hitboxes.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sConnected","order":5,"path":"sprites/sConnected/sConnected.yy",},

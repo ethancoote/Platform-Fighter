@@ -54,8 +54,25 @@ init_dash_count = 0;
 init_dash_active = false;
 init_dash_speed_dir = init_dash_speed;
 
-// frame tracking
+// misc
 last_frame_y = y;
+last_move_dir = 1;
+attack_instance = noone;
+
+// attack controls
+//// big attack 1
+big_attack1_active_frames = 5;
+big_attack1_start_frames = 10;
+big_attack1_end_frames = 20;
+big_attack1_timer = 0;
+big_attack1_launch_angle = 45;
+
+
+// lag constants
+endlag = 0;
+active = 0;
+startup = 0;
+hitstun = 0;
 
 // Sprite Controls
 squash_timer = 0;
