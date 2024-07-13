@@ -58,6 +58,11 @@ init_dash_speed_dir = init_dash_speed;
 last_frame_y = y;
 last_move_dir = 1;
 attack_instance = noone;
+player = noone;
+enemy = noone;
+hit_speed = [0, 0];
+falloff = [0, 0];
+damage = 0;
 
 // attack controls
 //// big attack 1
@@ -65,7 +70,13 @@ big_attack1_active_frames = 5;
 big_attack1_start_frames = 10;
 big_attack1_end_frames = 20;
 big_attack1_timer = 0;
-big_attack1_launch_angle = 45;
+big_attack1_strength = 30;
+big_attack1_launch_angle = [0.2, -0.2];
+
+// active move
+move_strenth = 0;
+launch_angle = [0, 0];
+
 
 
 // lag constants

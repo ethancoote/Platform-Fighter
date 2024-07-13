@@ -47,7 +47,7 @@ if init_dash_timer > 0 {
 }
 
 // Air Dash Init
-if  dash_key && x_spd != 0 && grounded == false && dash_count < dash_max {
+if  dash_key && x_spd != 0 && grounded == false && dash_count < dash_max && hitstun == 0 && endlad == 0{
 	dash_timer = dash_frames + dash_hang_time;
 	if x_spd < 0 {
 		dash_speed_dir = -dash_speed;
@@ -73,7 +73,7 @@ if y_spd > term_vel {
 }
 
 // init jump
-if jump_key_buffered && jump_count < jump_max {
+if jump_key_buffered && jump_count < jump_max && hitstun == 0 && endlag == 0{
 	jump_key_buffered = false;
 	jump_key_buffer_time = 0;
 	jump_count++;
@@ -110,7 +110,7 @@ last_move_dir = face;
 
 // Attacks
 // big attack 1
-if big_attack_key && grounded && endlag == 0 {
+if big_attack_key && grounded && endlag == 0 && hitstun == 0{
 	endlag = big_attack1_end_frames;
 	startup = big_attack1_start_frames;
 	active = big_attack1_active_frames;
@@ -121,14 +121,16 @@ if big_attack1_timer > 0 {
 	if startup > 0 {
 		startup--;
 	} else if active > 0 {
-		
 		if attack_instance == noone {
 			if last_move_dir > 0 {
 				attack_instance = instance_create_depth(x+15, y-5, -1, oBrawlBig1);
+				launch_angle = big_attack1_launch_angle;
 			} else if last_move_dir < 0 {
 				attack_instance = instance_create_depth(x-15, y-5, -1, oBrawlBig1);
 				attack_instance.image_xscale = attack_instance.image_xscale * -1;
+				launch_angle = [-big_attack1_launch_angle[0], big_attack1_launch_angle[1]];
 			}
+			move_strenth = big_attack1_strength;
 		}
 		active--;
 	} else if endlag > 0 {
@@ -144,6 +146,20 @@ if big_attack1_timer > 0 {
 }
 
 // Got Hit
+if enemy.attack_instance != noone {
+	if place_meeting(x, y, enemy.attack_instance) {
+		hitstun = enemy.move_strenth;
+		hit_speed = [enemy.move_strenth * enemy.launch_angle[0], enemy.move_strenth * enemy.launch_angle[1]];
+		falloff = [hit_speed[0]/hitstun, hit_speed[1]/hitstun];
+	}
+}
+
+if hitstun > 0 {
+	x_spd = falloff[0] * hitstun;
+	y_spd = falloff[1] * hitstun;
+	hitstun--;
+}
+
 
 
 // Y Collision
