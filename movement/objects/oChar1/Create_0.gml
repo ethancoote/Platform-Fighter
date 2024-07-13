@@ -63,6 +63,7 @@ enemy = noone;
 hit_speed = [0, 0];
 falloff = [0, 0];
 player_num = 0;
+on_plat = false;
 
 // status info
 damage = 0;

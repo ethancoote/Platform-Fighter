@@ -177,6 +177,7 @@ if place_meeting(x, y, oBlastZone) {
 
 // Y Collision
 var _sub_pixel = .5;
+
 if place_meeting(x, y + y_spd, oWall) {
 	var _pixel_check = _sub_pixel * sign(y_spd);
 	
@@ -191,17 +192,15 @@ if place_meeting(x, y + y_spd, oWall) {
 	if y_spd > grav {
 		squash_timer = squash_frames;
 	}
-	
+	on_plat = false;
 	y_spd = 0;
-} else if place_meeting(x, y + y_spd + 1, oPlat) && last_frame_y <= oPlat.y {
+} else if place_meeting(x, y + y_spd, oPlat) && last_frame_y <= (oPlat.y + _sub_pixel) {
+	show_debug_message("HHEERERE");
+	show_debug_message(string(last_frame_y) + " " + string(oPlat.y));
 	var _pixel_check = _sub_pixel * sign(y_spd);
 	
 	while !place_meeting(x, y + _pixel_check, oPlat) {
 		y += _pixel_check;
-	}
-	
-	if y > oPlat.y {
-		y = oPlat.y;
 	}
 	
 	if crouch_key && x_spd == 0{
@@ -215,8 +214,10 @@ if place_meeting(x, y + y_spd, oWall) {
 	if y_spd > grav {
 		squash_timer = squash_frames;
 	}
-	
+	on_plat = true;
 	y_spd = 0;
+} else {
+	on_plat = false;
 }
 
 y += y_spd;
@@ -235,7 +236,7 @@ if place_meeting(x + x_spd, y, oWall) {
 x += x_spd;
 
 // Set grounded
-if (y_spd >= 0 && place_meeting(x, y+1, oWall)) || (y_spd >= 0 && place_meeting(x, y+1, oPlat) && last_frame_y <= oPlat.y) {
+if (y_spd >= 0 && place_meeting(x, y+1, oWall)) || (y_spd >= 0 && on_plat) {
 	grounded = true;
 	coyote_timer = coyote_frames;
 	jump_count = 0;
