@@ -47,7 +47,7 @@ if init_dash_timer > 0 {
 }
 
 // Air Dash Init
-if  dash_key && x_spd != 0 && grounded == false && dash_count < dash_max && hitstun == 0 && endlad == 0{
+if  dash_key && x_spd != 0 && grounded == false && dash_count < dash_max && hitstun == 0 && endlag == 0{
 	dash_timer = dash_frames + dash_hang_time;
 	if x_spd < 0 {
 		dash_speed_dir = -dash_speed;
@@ -180,7 +180,8 @@ if place_meeting(x, y + y_spd, oWall) {
 	}
 	
 	y_spd = 0;
-} else if place_meeting(x, y + y_spd, oPlat) && last_frame_y <= oPlat.y {
+} else if place_meeting(x, y + y_spd + 1, oPlat) && last_frame_y <= oPlat.y {
+	show_debug_message("land" + string(y));
 	var _pixel_check = _sub_pixel * sign(y_spd);
 	
 	while !place_meeting(x, y + _pixel_check, oPlat) {
