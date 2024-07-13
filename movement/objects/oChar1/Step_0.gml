@@ -160,7 +160,20 @@ if hitstun > 0 {
 	hitstun--;
 }
 
-
+// death
+if place_meeting(x, y, oBlastZone) {
+	respawns -= 1;
+	damage = 0;
+	if respawns == 0 {
+		show_debug_message("game end");
+	} else if player_num == 1 {
+		x = oStageControl.p1_spawn[0];
+		y = oStageControl.p1_spawn[1];
+	} else if player_num == 2 {
+		x = oStageControl.p2_spawn[0];
+		y = oStageControl.p2_spawn[1];
+	}
+}
 
 // Y Collision
 var _sub_pixel = .5;
@@ -181,7 +194,6 @@ if place_meeting(x, y + y_spd, oWall) {
 	
 	y_spd = 0;
 } else if place_meeting(x, y + y_spd + 1, oPlat) && last_frame_y <= oPlat.y {
-	show_debug_message("land" + string(y));
 	var _pixel_check = _sub_pixel * sign(y_spd);
 	
 	while !place_meeting(x, y + _pixel_check, oPlat) {

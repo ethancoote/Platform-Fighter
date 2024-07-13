@@ -62,7 +62,11 @@ player = noone;
 enemy = noone;
 hit_speed = [0, 0];
 falloff = [0, 0];
+player_num = 0;
+
+// status info
 damage = 0;
+respawns = 3;
 
 // attack controls
 //// big attack 1

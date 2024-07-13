@@ -20,11 +20,13 @@
   ],
   "ResourceOrderSettings": [
     {"name":"sConnected","order":5,"path":"sprites/sConnected/sConnected.yy",},
+    {"name":"sBlastZone","order":11,"path":"sprites/sBlastZone/sBlastZone.yy",},
     {"name":"charSelectBackground","order":4,"path":"sprites/charSelectBackground/charSelectBackground.yy",},
     {"name":"oChar1","order":1,"path":"objects/oChar1/oChar1.yy",},
     {"name":"sNotReady","order":8,"path":"sprites/sNotReady/sNotReady.yy",},
     {"name":"sStageBackground","order":9,"path":"sprites/sStageBackground/sStageBackground.yy",},
     {"name":"sReady","order":7,"path":"sprites/sReady/sReady.yy",},
+    {"name":"oBlastZone","order":12,"path":"objects/oBlastZone/oBlastZone.yy",},
     {"name":"sWall","order":2,"path":"sprites/sWall/sWall.yy",},
     {"name":"sPlat","order":3,"path":"sprites/sPlat/sPlat.yy",},
     {"name":"oReadyCheck1","order":6,"path":"objects/oReadyCheck1/oReadyCheck1.yy",},
