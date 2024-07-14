@@ -12,9 +12,9 @@ face = 1;
 i = -1;
 
 // Jumping
-set_grav = .6;
+set_grav = .55;
 grav = set_grav;
-term_vel = 7;
+term_vel = 5;
 jump_speed = -6;
 jump_max = 2;
 jump_count = 0;

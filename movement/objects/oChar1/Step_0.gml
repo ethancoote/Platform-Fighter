@@ -262,7 +262,7 @@ draw_angle = 0;
 if jump_hold_timer > 0 && jump_squat_count < jump_squat_frames {
 	draw_yscale = 0.5;
 	draw_xscale = 1.5;
-} else if y_spd > 5 || y_spd < -5 {
+} else if y_spd < -3 || y_spd == term_vel {
 	draw_yscale = 1.5;
 	draw_xscale = 0.7;
 	draw_ypos = y - 5;
