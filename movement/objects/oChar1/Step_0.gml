@@ -180,6 +180,7 @@ if place_meeting(x, y, oBlastZone) {
 	damage = 0;
 	if respawns == 0 {
 		show_debug_message("game end");
+		room_goto(0);
 	} else if player_num == 1 {
 		x = oStageControl.p1_spawn[0];
 		y = oStageControl.p1_spawn[1];
