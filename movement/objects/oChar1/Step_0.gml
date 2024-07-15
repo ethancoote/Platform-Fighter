@@ -183,9 +183,11 @@ if place_meeting(x, y, oBlastZone) {
 	} else if player_num == 1 {
 		x = oStageControl.p1_spawn[0];
 		y = oStageControl.p1_spawn[1];
+		oP1Lives.life_count -= 1;
 	} else if player_num == 2 {
 		x = oStageControl.p2_spawn[0];
 		y = oStageControl.p2_spawn[1];
+		oP2Lives.life_count -= 1;
 	}
 }
 
