@@ -158,6 +158,7 @@ if enemy.attack_instance != noone && invol_timer == 0 {
 		falloff = [hit_speed[0]/hitstun, hit_speed[1]/hitstun];
 		hitpause = round(enemy.move_strenth / 2);
 		invol_timer = invol_buffer;
+		damage += hitpause;
 	}
 }
 
