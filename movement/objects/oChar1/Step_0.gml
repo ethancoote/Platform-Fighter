@@ -156,7 +156,7 @@ if enemy.attack_instance != noone && invol_timer == 0 {
 		hitstun = enemy.move_strenth;
 		hit_speed = [enemy.move_strenth * enemy.launch_angle[0], enemy.move_strenth * enemy.launch_angle[1]];
 		falloff = [hit_speed[0]/hitstun, hit_speed[1]/hitstun];
-		hitpause = round(enemy.move_strenth / 3);
+		hitpause = round(enemy.move_strenth / 2);
 		invol_timer = invol_buffer;
 	}
 }
