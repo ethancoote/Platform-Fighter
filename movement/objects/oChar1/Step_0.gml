@@ -170,8 +170,9 @@ if hitpause > 0 {
 	if invol_timer > 0 {
 		invol_timer--;
 	}
-	x_spd = falloff[0] * hitstun;
-	y_spd = falloff[1] * hitstun;
+	damage_mult = (damage / 100) + 1;
+	x_spd = falloff[0] * hitstun * damage_mult;
+	y_spd = falloff[1] * hitstun * damage_mult;
 	hitstun--;
 }
 

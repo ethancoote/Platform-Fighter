@@ -65,6 +65,7 @@ player_num = 0;
 on_plat = false;
 invol_buffer = 3;
 invol_timer = 0;
+damage_mult = 0;
 
 // status info
 damage = 0;
