@@ -132,7 +132,9 @@ if big_attack1_timer > 0 {
 			}
 			move_strenth = big_attack1_strength;
 		}
-		active--;
+		if enemy.hitpause == 0 {
+			active--;
+		}
 	} else if endlag > 0 {
 		if attack_instance != noone {
 			instance_destroy(attack_instance);
@@ -142,19 +144,31 @@ if big_attack1_timer > 0 {
 	}
 	x_spd = 0;
 	y_spd = 0;
-	big_attack1_timer--;
+	if enemy.hitpause == 0 {
+		big_attack1_timer--;
+	}
+	
 }
 
 // Got Hit
-if enemy.attack_instance != noone {
+if enemy.attack_instance != noone && invol_timer == 0 {
 	if place_meeting(x, y, enemy.attack_instance) {
 		hitstun = enemy.move_strenth;
 		hit_speed = [enemy.move_strenth * enemy.launch_angle[0], enemy.move_strenth * enemy.launch_angle[1]];
 		falloff = [hit_speed[0]/hitstun, hit_speed[1]/hitstun];
+		hitpause = round(enemy.move_strenth / 3);
+		invol_timer = invol_buffer;
 	}
 }
 
-if hitstun > 0 {
+if hitpause > 0 {
+	x_spd = 0;
+	y_spd = 0;
+	hitpause--;
+} else if hitstun > 0 {
+	if invol_timer > 0 {
+		invol_timer--;
+	}
 	x_spd = falloff[0] * hitstun;
 	y_spd = falloff[1] * hitstun;
 	hitstun--;
@@ -195,8 +209,6 @@ if place_meeting(x, y + y_spd, oWall) {
 	on_plat = false;
 	y_spd = 0;
 } else if place_meeting(x, y + y_spd, oPlat) && last_frame_y <= (oPlat.y + _sub_pixel) {
-	show_debug_message("HHEERERE");
-	show_debug_message(string(last_frame_y) + " " + string(oPlat.y));
 	var _pixel_check = _sub_pixel * sign(y_spd);
 	
 	while !place_meeting(x, y + _pixel_check, oPlat) {

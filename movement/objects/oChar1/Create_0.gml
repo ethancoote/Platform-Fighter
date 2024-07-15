@@ -57,13 +57,14 @@ init_dash_speed_dir = init_dash_speed;
 // misc
 last_frame_y = y;
 last_move_dir = 1;
-attack_instance = noone;
 player = noone;
 enemy = noone;
 hit_speed = [0, 0];
 falloff = [0, 0];
 player_num = 0;
 on_plat = false;
+invol_buffer = 3;
+invol_timer = 0;
 
 // status info
 damage = 0;
@@ -77,17 +78,18 @@ big_attack1_end_frames = 20;
 big_attack1_timer = 0;
 big_attack1_strength = 30;
 big_attack1_launch_angle = [0.2, -0.2];
+big_attack1_hit_pause = 10;
 
 // active move
 move_strenth = 0;
 launch_angle = [0, 0];
-
-
+attack_instance = noone;
 
 // lag constants
 endlag = 0;
 active = 0;
 startup = 0;
+hitpause = 0;
 hitstun = 0;
 
 // Sprite Controls
