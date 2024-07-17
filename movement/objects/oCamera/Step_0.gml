@@ -24,7 +24,7 @@ if player1_y_pos < player2_y_pos {
 	cam_y = player2_y_pos + (_y_dif/2) - 15;
 }
 
-cam_size_x = (_x_dif/2) + 350;
+cam_size_x = (_x_dif/2) + 300;
 cam_size_y = cam_size_x * (9/16);
 
 // set cam position

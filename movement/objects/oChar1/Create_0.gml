@@ -74,13 +74,13 @@ respawns = 3;
 
 // attack controls
 //// big attack 1
-big_attack1_active_frames = 5;
-big_attack1_start_frames = 10;
-big_attack1_end_frames = 20;
+big_attack1_active_frames = 3;
+big_attack1_start_frames = 21;
+big_attack1_end_frames = 21;
 big_attack1_timer = 0;
 big_attack1_strength = 30;
 big_attack1_launch_angle = [0.2, -0.2];
-big_attack1_hit_pause = 10;
+big_attack1_hit_pause = 5;
 
 // active move
 move_strenth = 0;

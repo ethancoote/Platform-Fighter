@@ -12,13 +12,15 @@ if grounded {
 }
 
 y_spd += grav;
-
+if endlag > 0 {
+	move_dir = last_move_dir;
+}
 if move_dir == 0 {
 	move_dir = right_key_walk - left_key_walk;
 	x_spd = move_dir * walk_spd;
 	init_dash_count = 0;
 	init_dash_active = false;
-	if move_dir == 0 {
+	if move_dir == 0 || endlag > 0 {
 		face = last_move_dir;
 	} else {
 		face = move_dir;
@@ -119,6 +121,7 @@ if big_attack_key && grounded && endlag == 0 && hitstun == 0{
 
 if big_attack1_timer > 0 {
 	if startup > 0 {
+		sprite_index = sprites[player_num][6];
 		startup--;
 	} else if active > 0 {
 		if attack_instance == noone {
@@ -133,7 +136,10 @@ if big_attack1_timer > 0 {
 			move_strenth = big_attack1_strength;
 		}
 		if enemy.hitpause == 0 {
+			image_speed = 1;
 			active--;
+		} else {
+			image_speed = 0;
 		}
 	} else if endlag > 0 {
 		if attack_instance != noone {
@@ -208,7 +214,10 @@ draw_yscale = 1;
 draw_xpos = x;
 draw_ypos = y;
 draw_angle = 0;
-sprite_index = sprites[player_num][0];
+if endlag == 0 {
+	sprite_index = sprites[player_num][0];
+}
+
 
 if jump_hold_timer > 0 && jump_squat_count < jump_squat_frames && hitstun == 0 {
 	sprite_index = sprites[player_num][3];
