@@ -159,6 +159,12 @@ if enemy.attack_instance != noone && invol_timer == 0 {
 		hitpause = round(enemy.move_strenth / 2);
 		invol_timer = invol_buffer;
 		damage += hitpause;
+		if enemy.x > x {
+			face = 1;
+		} else {
+			face = -1;
+		}
+		last_move_dir = face;
 	}
 }
 
