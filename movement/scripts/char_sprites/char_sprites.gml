@@ -10,6 +10,7 @@ function populate_char_sprites_array_brawl() {
 	sprite_array[1][4] = sBrawlJump1_2;
 	sprite_array[1][5] = sBrawlJump1_3;
 	sprite_array[1][6] = sBrawlPunch1;
+	sprite_array[1][7] = sBrawlHurt1;
 	
 	// player 2 sprites
 	sprite_array[2][0] = sBrawlIdle2;
@@ -18,6 +19,8 @@ function populate_char_sprites_array_brawl() {
 	sprite_array[2][3] = sBrawlJump2_1;
 	sprite_array[2][4] = sBrawlJump2_2;
 	sprite_array[2][5] = sBrawlJump2_3
+	sprite_array[2][6] = sBrawlPunch2;
+	sprite_array[2][7] = sBrawlHurt2;
 	
 	return sprite_array;
 }

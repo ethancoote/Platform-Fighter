@@ -41,6 +41,7 @@
   },
   "resources": [
     {"id":{"name":"sConnected","path":"sprites/sConnected/sConnected.yy",},},
+    {"id":{"name":"sBrawlPunch2","path":"sprites/sBrawlPunch2/sBrawlPunch2.yy",},},
     {"id":{"name":"sBrawlDash2","path":"sprites/sBrawlDash2/sBrawlDash2.yy",},},
     {"id":{"name":"sBrawlJump1_3","path":"sprites/sBrawlJump1_3/sBrawlJump1_3.yy",},},
     {"id":{"name":"sBrawlBig1","path":"sprites/sBrawlBig1/sBrawlBig1.yy",},},
@@ -60,6 +61,7 @@
     {"id":{"name":"oBrawlBig1","path":"objects/oBrawlBig1/oBrawlBig1.yy",},},
     {"id":{"name":"oBlastZone","path":"objects/oBlastZone/oBlastZone.yy",},},
     {"id":{"name":"general_functions","path":"scripts/general_functions/general_functions.yy",},},
+    {"id":{"name":"sBrawlHurt1","path":"sprites/sBrawlHurt1/sBrawlHurt1.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
     {"id":{"name":"sP1Lives1","path":"sprites/sP1Lives1/sP1Lives1.yy",},},
     {"id":{"name":"sBrawlJump2","path":"sprites/sBrawlJump2/sBrawlJump2.yy",},},
@@ -73,6 +75,7 @@
     {"id":{"name":"sChar2","path":"sprites/sChar2/sChar2.yy",},},
     {"id":{"name":"oReadyCheck2","path":"objects/oReadyCheck2/oReadyCheck2.yy",},},
     {"id":{"name":"oConnect2","path":"objects/oConnect2/oConnect2.yy",},},
+    {"id":{"name":"sBrawlHurt2","path":"sprites/sBrawlHurt2/sBrawlHurt2.yy",},},
     {"id":{"name":"oP1Lives","path":"objects/oP1Lives/oP1Lives.yy",},},
     {"id":{"name":"sChar1","path":"sprites/sChar1/sChar1.yy",},},
     {"id":{"name":"oConnect1","path":"objects/oConnect1/oConnect1.yy",},},

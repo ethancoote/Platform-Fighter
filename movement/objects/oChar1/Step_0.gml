@@ -171,6 +171,7 @@ if enemy.attack_instance != noone && invol_timer == 0 {
 			face = -1;
 		}
 		last_move_dir = face;
+		sprite_index = sprites[player_num][7];
 	}
 }
 
@@ -214,7 +215,7 @@ draw_yscale = 1;
 draw_xpos = x;
 draw_ypos = y;
 draw_angle = 0;
-if endlag == 0 {
+if endlag == 0 && hitstun == 0 {
 	sprite_index = sprites[player_num][0];
 }
 

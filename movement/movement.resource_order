@@ -24,6 +24,7 @@
   ],
   "ResourceOrderSettings": [
     {"name":"sConnected","order":5,"path":"sprites/sConnected/sConnected.yy",},
+    {"name":"sBrawlPunch2","order":15,"path":"sprites/sBrawlPunch2/sBrawlPunch2.yy",},
     {"name":"sBrawlDash2","order":9,"path":"sprites/sBrawlDash2/sBrawlDash2.yy",},
     {"name":"sBrawlJump1_3","order":5,"path":"sprites/sBrawlJump1_3/sBrawlJump1_3.yy",},
     {"name":"sBlastZone","order":11,"path":"sprites/sBlastZone/sBlastZone.yy",},
@@ -39,6 +40,7 @@
     {"name":"sBrawlPunch1","order":14,"path":"sprites/sBrawlPunch1/sBrawlPunch1.yy",},
     {"name":"sBrawlJump1","order":2,"path":"sprites/sBrawlJump1/sBrawlJump1.yy",},
     {"name":"oBlastZone","order":12,"path":"objects/oBlastZone/oBlastZone.yy",},
+    {"name":"sBrawlHurt1","order":16,"path":"sprites/sBrawlHurt1/sBrawlHurt1.yy",},
     {"name":"sWall","order":2,"path":"sprites/sWall/sWall.yy",},
     {"name":"sP1Lives1","order":2,"path":"sprites/sP1Lives1/sP1Lives1.yy",},
     {"name":"sBrawlJump2","order":10,"path":"sprites/sBrawlJump2/sBrawlJump2.yy",},
@@ -51,6 +53,7 @@
     {"name":"sChar2","order":1,"path":"sprites/sChar2/sChar2.yy",},
     {"name":"oReadyCheck2","order":7,"path":"objects/oReadyCheck2/oReadyCheck2.yy",},
     {"name":"oConnect2","order":5,"path":"objects/oConnect2/oConnect2.yy",},
+    {"name":"sBrawlHurt2","order":17,"path":"sprites/sBrawlHurt2/sBrawlHurt2.yy",},
     {"name":"oConnect1","order":4,"path":"objects/oConnect1/oConnect1.yy",},
     {"name":"CharSelectRoom","order":1,"path":"rooms/CharSelectRoom/CharSelectRoom.yy",},
     {"name":"sLivesNone","order":3,"path":"sprites/sLivesNone/sLivesNone.yy",},
