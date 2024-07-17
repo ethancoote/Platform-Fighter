@@ -67,6 +67,7 @@ on_plat = false;
 invol_buffer = 3;
 invol_timer = 0;
 damage_mult = 0;
+buffer_frames = 8;
 
 // status info
 damage = 0;
@@ -81,6 +82,7 @@ big_attack1_timer = 0;
 big_attack1_strength = 30;
 big_attack1_launch_angle = [0.3, -0.1];
 big_attack1_hit_pause = 5;
+big_attack1_buffer_timer = 0;
 
 // active move
 move_strenth = 0;

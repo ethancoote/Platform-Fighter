@@ -39,6 +39,6 @@ function get_menu_controls(_i) {
 	start_key = keyboard_check(vk_enter) || gamepad_button_check_pressed(_i, gp_start);
 	
 	// Deadzone
-	gamepad_set_axis_deadzone(_i, 0.3);
+	gamepad_set_axis_deadzone(_i, 0.45);
 }
 

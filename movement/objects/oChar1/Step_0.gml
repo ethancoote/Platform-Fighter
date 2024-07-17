@@ -12,6 +12,10 @@ if grounded {
 }
 
 y_spd += grav;
+if hitstun == 0 {
+	depth = 0;
+}
+
 if endlag > 0 {
 	move_dir = last_move_dir;
 }
@@ -112,11 +116,18 @@ last_move_dir = face;
 
 // Attacks
 // big attack 1
-if big_attack_key && grounded && endlag == 0 && hitstun == 0{
+if big_attack_key {
+	big_attack1_buffer_timer = buffer_frames;
+} else if big_attack1_buffer_timer > 0 {
+	big_attack1_buffer_timer--;
+}
+
+if big_attack1_buffer_timer > 0 && grounded && endlag == 0 && hitstun == 0{
 	endlag = big_attack1_end_frames;
 	startup = big_attack1_start_frames;
 	active = big_attack1_active_frames;
 	big_attack1_timer = endlag + startup + active;
+	big_attack1_buffer_timer = 0;
 }
 
 if big_attack1_timer > 0 {
@@ -156,8 +167,11 @@ if big_attack1_timer > 0 {
 	
 }
 
+
+
 // Got Hit
 if enemy.attack_instance != noone && invol_timer == 0 {
+	depth = 1;
 	if place_meeting(x, y, enemy.attack_instance) {
 		hitstun = round(enemy.move_strenth / 1.5);
 		hit_speed = [enemy.move_strenth * enemy.launch_angle[0], enemy.move_strenth * enemy.launch_angle[1]];
