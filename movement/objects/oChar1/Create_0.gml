@@ -79,7 +79,7 @@ big_attack1_start_frames = 21;
 big_attack1_end_frames = 21;
 big_attack1_timer = 0;
 big_attack1_strength = 30;
-big_attack1_launch_angle = [0.2, -0.2];
+big_attack1_launch_angle = [0.3, -0.1];
 big_attack1_hit_pause = 5;
 
 // active move

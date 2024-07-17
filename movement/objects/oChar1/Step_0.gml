@@ -159,7 +159,7 @@ if big_attack1_timer > 0 {
 // Got Hit
 if enemy.attack_instance != noone && invol_timer == 0 {
 	if place_meeting(x, y, enemy.attack_instance) {
-		hitstun = enemy.move_strenth;
+		hitstun = round(enemy.move_strenth / 1.5);
 		hit_speed = [enemy.move_strenth * enemy.launch_angle[0], enemy.move_strenth * enemy.launch_angle[1]];
 		falloff = [hit_speed[0]/hitstun, hit_speed[1]/hitstun];
 		hitpause = round(enemy.move_strenth / 2);
@@ -182,7 +182,7 @@ if hitpause > 0 {
 	if invol_timer > 0 {
 		invol_timer--;
 	}
-	damage_mult = (damage / 100) + 1;
+	damage_mult = (damage / 50) + 1;
 	x_spd = falloff[0] * hitstun * damage_mult;
 	y_spd = falloff[1] * hitstun * damage_mult;
 	hitstun--;
