@@ -1,5 +1,6 @@
 // Controls
 controls_setup();
+sprites = populate_char_sprites_array_brawl();
 
 // Moving
 move_dir = 0;

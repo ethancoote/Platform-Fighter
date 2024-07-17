@@ -41,3 +41,4 @@ function get_menu_controls(_i) {
 	// Deadzone
 	gamepad_set_axis_deadzone(_i, 0.3);
 }
+

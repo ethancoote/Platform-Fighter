@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sChar1",
-    "path": "sprites/sChar1/sChar1.yy",
+    "name": "sBrawlIdle1",
+    "path": "sprites/sBrawlIdle1/sBrawlIdle1.yy",
   },
   "spriteMaskId": null,
   "visible": true,
