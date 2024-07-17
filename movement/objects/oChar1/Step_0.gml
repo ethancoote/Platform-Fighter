@@ -204,31 +204,29 @@ draw_ypos = y;
 draw_angle = 0;
 sprite_index = sprites[player_num][0];
 
-if jump_hold_timer > 0 && jump_squat_count < jump_squat_frames {
+if jump_hold_timer > 0 && jump_squat_count < jump_squat_frames && hitstun == 0 {
 	sprite_index = sprites[player_num][3];
-} else if y_spd < -3 || y_spd == term_vel {
+} else if (y_spd < -3 || y_spd == term_vel) && hitstun == 0 {
 	sprite_index = sprites[player_num][4];
+} else if (y_spd < -2 || y_spd >= (term_vel+1)) && hitstun == 0 {
+	sprite_index = sprites[player_num][5];
 }
 
 if squash_timer > 3 && grounded{
-	draw_yscale = 0.4;
-	draw_xscale = 2;
+	sprite_index = sprites[player_num][3];
 	squash_timer--;
 } else if squash_timer > 0 && grounded {
-	draw_yscale = 0.8;
-	draw_xscale = 1.3;
+	sprite_index = sprites[player_num][2];
 	squash_timer--;
 }
 
 // dash
-if (x_spd >= dash_speed || x_spd <= -dash_speed) && !grounded {
-	//draw_xscale = 1.6;
-	//draw_yscale = 0.7;
+if (x_spd >= dash_speed || x_spd <= -dash_speed) && !grounded && hitstun == 0{
 	if x_spd > 0 || x_spd < 0{
 		sprite_index = sprites[player_num][1];
 		
 	}
-} else if (x_spd >= move_spd || x_spd <= -move_spd) && grounded {
+} else if (x_spd >= move_spd || x_spd <= -move_spd) && grounded && hitstun == 0{
 	draw_ypos = y - 2;
 	if x_spd > 0 {
 		draw_xpos = x - 5;
