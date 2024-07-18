@@ -164,7 +164,6 @@ if big_attack1_timer > 0 {
 	if enemy.hitpause == 0 {
 		big_attack1_timer--;
 	}
-	
 }
 
 

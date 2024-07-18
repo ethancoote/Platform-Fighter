@@ -84,6 +84,16 @@ big_attack1_launch_angle = [0.3, -0.1];
 big_attack1_hit_pause = 5;
 big_attack1_buffer_timer = 0;
 
+//// air 1
+air1_active_frames = 3;
+air1_start_frames = 21;
+air1_end_frames = 21;
+air1_timer = 0;
+air1_strength = 30;
+air1_launch_angle = [0.3, -0.1];
+air1_hit_pause = 5;
+air1_buffer_timer = 0;
+
 // active move
 move_strenth = 0;
 launch_angle = [0, 0];
